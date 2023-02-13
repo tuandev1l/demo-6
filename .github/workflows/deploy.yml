@@ -6,13 +6,13 @@ on:
       - main
       - dev
 env:
-  MONGODB_DB_NAME: test
+  MONGODB_DB_NAME: ${{ vars.MONGODB_DB_NAME }}
 jobs:
   test:
     env:
-      MONGODB_USERNAME: tuantm
-      MONGODB_PASSWORD: WCAYO8Qn27rPsLjR
-      MONGODB_CLUSTER_ADDRESS: cluster0.s0evmsb.mongodb.net
+      MONGODB_USERNAME: ${{ vars.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
